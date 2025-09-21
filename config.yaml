@@ -1,0 +1,50 @@
+# AI-digitalarabic Configuration File
+# This file contains configuration settings for the AI-digitalarabic library
+
+model:
+  # Language model settings
+  language: "ar"  # Arabic
+  max_tokens: 512
+  temperature: 0.7
+  top_p: 0.9
+  
+  # Model paths (when available)
+  sentiment_model: "models/arabic_sentiment_v1.bin"
+  ner_model: "models/arabic_ner_v1.bin"
+  generation_model: "models/arabic_gpt_v1.bin"
+
+processing:
+  # Text preprocessing options
+  normalize_text: true
+  remove_diacritics: false
+  handle_emojis: true
+  remove_extra_whitespace: true
+  
+  # Language-specific processing
+  normalize_alef: true
+  normalize_teh: true
+  handle_kashida: true
+
+api:
+  # API configuration
+  endpoint: "https://api.ai-digitalarabic.com"
+  timeout: 30
+  max_retries: 3
+  
+  # Rate limiting
+  requests_per_minute: 60
+  requests_per_hour: 1000
+
+cache:
+  # Caching settings
+  enabled: true
+  type: "memory"  # or "redis", "file"
+  ttl: 3600  # Time to live in seconds
+  max_size: 1000  # Maximum cache size
+
+logging:
+  # Logging configuration
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/ai_digitalarabic.log"
+  console: true
